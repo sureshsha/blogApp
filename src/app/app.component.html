@@ -1,0 +1,32 @@
+<div style = "text-align: center;">
+<div class="container">
+<div class="row header">
+  <div class="col-md-12">
+    <a style="color:antiquewhite;">Blog Application</a>
+  </div>
+</div>
+<nav class="navbar navbar-default">
+  <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+  </div>
+  <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+          <li><a routerLink="/home" routerLinkActive="active" href="#">Home</a></li>
+          <li><a routerLink="/blog" routerLinkActive="active" href="#">Blog</a></li>
+          <li><a routerLink="/create" routerLinkActive="active" href="#">Create</a></li>
+          <li><a routerLink="/Contact" routerLinkActive="active" href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Login</a></li>
+      </ul>
+  </div>
+</nav>
+</div>
+<br />
+<router-outlet></router-outlet>
+</div>
