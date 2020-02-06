@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -10,6 +11,9 @@ import { BlogCreateComponent } from './blog-create/blog-create.component';
 import { BlogEditComponent } from './blog-edit/blog-edit.component';
 import { BlogViewComponent } from './blog-view/blog-view.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { BlogService } from './blog.service';
+import { CarouselComponent } from './carousel/carousel.component';
+
 
 @NgModule({
   declarations: [
@@ -19,10 +23,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BlogCreateComponent,
     BlogEditComponent,
     BlogViewComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
       { path: 'about', component: AboutComponent },
@@ -33,7 +39,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
       { path: '**', component: NotFoundComponent }
     ])
   ],
-  providers: [],
+  providers: [BlogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

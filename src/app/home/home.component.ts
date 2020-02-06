@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogService } from '../blog.service';
 
 @Component({
   selector: 'app-home',
@@ -7,50 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public allBlogs = [
-    {
-    "blogId": "1",
-    "lastModified": "2017-10-20T12:20:47.854Z",
-    "created": "2017-10-20T12:20:47.854Z",
-    "tags": [],
-    "auth": "admin",
-    "category": "comedy",
-    "isPublished": true,
-    "views": 0,
-    "bodyHtml": "this is body",
-    "description": "this is description of body",
-    "title": "this is test Blog" 
-  },
-    {
-      "blogId": "2",
-      "lastModified": "2017-10-20T12:20:47.854Z",
-      "created": "2017-10-20T12:20:47.854Z",
-      "tags": [],
-      "auth": "admin",
-      "category": "comedy",
-      "isPublished": true,
-      "views": 0,
-      "bodyHtml": "this is body",
-      "description": "this is description of body",
-      "title": "this is test Blog"
-}, 
-  {
-      "blogId": "3",
-      "lastModified": "2017-10-20T12:20:47.854Z",
-      "created": "2017-10-20T12:20:47.854Z",
-      "tags": [],
-      "auth": "admin",
-      "category": "comedy",
-      "isPublished": true,
-      "views": 0,
-      "bodyHtml": "this is body",
-      "description": "this is description of body",
-      "title": "this is test Blog" 
-    }
-]
-  constructor() { }
+  allBlogs = [''];
+
+  constructor(private blogData: BlogService) { }
 
   ngOnInit() {
+   this.blogData.getAllBlogs().subscribe(
+     data => {
+      this.allBlogs = data;
+     },
+     error => {
+       console.log('Some is went wrong');
+     }
+   );
+   console.log(this.allBlogs);
   }
 
 }
